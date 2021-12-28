@@ -9,6 +9,7 @@ typedef short int       uint16_t;
 
 
 /*- INCLUDES -----------------------------------------------*/
+#include <stdio.h>
 /*- CONSTANTS ----------------------------------------------*/
 #define row 3
 #define col 3

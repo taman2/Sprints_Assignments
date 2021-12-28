@@ -99,13 +99,13 @@ void check_win(enuPlayer_t player)
 
                 if(user_input[i][0]== user_input[i][1] && user_input[i][1]== user_input[i][2] && user_input[i][0]=='X')
                 {
-                    printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
+                   // printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
                     genu_GameState=PLAYER1_WIN;
                     break;
                 }
                 else if(user_input[0][i]== user_input[1][i] && user_input[1][i]== user_input[2][i] && user_input[1][i]=='X')
                 {
-                    printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
+                   // printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
                     genu_GameState=PLAYER1_WIN;
                     break;
 
@@ -114,13 +114,13 @@ void check_win(enuPlayer_t player)
                 {
                     if(user_input[i][j]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j+2] && user_input[i][j]=='X')
                     {
-                        printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
+                      //  printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
                         genu_GameState=PLAYER1_WIN;
                         break;
                     }
                     else if(user_input[i][j+2]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j] && user_input[i][j+2]=='X')
                     {
-                        printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
+                       // printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
                         genu_GameState=PLAYER1_WIN;
                         break;
                     }
@@ -140,7 +140,6 @@ void check_win(enuPlayer_t player)
             {
                 if(user_input[i][0]== user_input[i][1] && user_input[i][1]== user_input[i][2] && user_input[i][0]=='O')
                 {
-                    printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
                     genu_GameState=PLAYER2_WIN;
                     break;
 
@@ -148,7 +147,7 @@ void check_win(enuPlayer_t player)
                 }
                 else if(user_input[0][i]== user_input[1][i] && user_input[1][i]== user_input[2][i] && user_input[1][i]=='O')
                 {
-                    printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
+                   // printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
                     genu_GameState=PLAYER2_WIN;
                     break;
 
@@ -156,15 +155,15 @@ void check_win(enuPlayer_t player)
                 }
                else if(i ==0 && j==0)
                 {
-                    if(user_input[i][j]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j+2] && user_input[i][j]=='X')
+                    if(user_input[i][j]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j+2] && user_input[i][j]=='O')
                     {
-                        printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
+                      //  printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
                         genu_GameState=PLAYER2_WIN;
                         break;
                     }
-                    else if(user_input[i][j+2]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j] && user_input[i][j+2]=='X')
+                    else if(user_input[i][j+2]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j] && user_input[i][j+2]=='O')
                     {
-                        printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
+                      //  printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
                         genu_GameState=PLAYER2_WIN;
                         break;
                     }
@@ -192,6 +191,18 @@ void check_end(void)
     }
     if(genu_GameState != PLAY)
     {
+        if(genu_GameState == PLAYER1_WIN)
+        {
+            board(player1);
+            printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
+
+        }
+        else if(genu_GameState == PLAYER2_WIN)
+        {
+            board(player2);
+            printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
+
+        }
         genu_GameState = PLAY;
         uint8_t au8_i=0;
         uint8_t au8_j=0;
