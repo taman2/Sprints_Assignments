@@ -184,7 +184,7 @@ void check_end(void)
     if(gu8_PlayCounter == MAX_PLAY_NUM)
     {
         genu_GameState=DRAW;
-        printf(" /*/*/*/*/*/*/**/  DRWA */**/*//**/*/***/\n");
+        printf(" /*/*/*/*/*/*/**/  DRAW */**/*//**/*/***/\n");
         gu8_PlayCounter=0;
         genu_Player = player1;
 
@@ -222,7 +222,6 @@ void check_end(void)
         genu_Player = player1;
         gu8_PlayCounter=0;
 
-       // board(player1);
 
     }
 
