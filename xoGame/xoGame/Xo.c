@@ -99,13 +99,11 @@ void check_win(enuPlayer_t player)
 
                 if(user_input[i][0]== user_input[i][1] && user_input[i][1]== user_input[i][2] && user_input[i][0]=='X')
                 {
-                   // printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
                     genu_GameState=PLAYER1_WIN;
                     break;
                 }
                 else if(user_input[0][i]== user_input[1][i] && user_input[1][i]== user_input[2][i] && user_input[1][i]=='X')
                 {
-                   // printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
                     genu_GameState=PLAYER1_WIN;
                     break;
 
@@ -114,13 +112,11 @@ void check_win(enuPlayer_t player)
                 {
                     if(user_input[i][j]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j+2] && user_input[i][j]=='X')
                     {
-                      //  printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
                         genu_GameState=PLAYER1_WIN;
                         break;
                     }
                     else if(user_input[i][j+2]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j] && user_input[i][j+2]=='X')
                     {
-                       // printf(" /*/*/*/*/*/*/**/ PLAYER1 WIN */**/*//**/*/***/\n");
                         genu_GameState=PLAYER1_WIN;
                         break;
                     }
@@ -157,13 +153,11 @@ void check_win(enuPlayer_t player)
                 {
                     if(user_input[i][j]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j+2] && user_input[i][j]=='O')
                     {
-                      //  printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
                         genu_GameState=PLAYER2_WIN;
                         break;
                     }
                     else if(user_input[i][j+2]== user_input[i+1][j+1] && user_input[i+1][j+1]== user_input[i+2][j] && user_input[i][j+2]=='O')
                     {
-                      //  printf(" /*/*/*/*/*/*/**/ PLAYER2 WIN */**/*//**/*/***/\n");
                         genu_GameState=PLAYER2_WIN;
                         break;
                     }
