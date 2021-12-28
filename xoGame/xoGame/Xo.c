@@ -36,12 +36,12 @@ void board(enuPlayer_t player)
 	if(player == player1)
     {
         printf("player1 Please select your position form 0 to 8\n");
-        printf("player1 position: ");
+        printf("player1 position:");
     }
     else
     {
         printf("player2 Please select your position form 0 to 8\n");
-        printf("player2 position: ");
+        printf("player2 position:");
 
     }
 
@@ -55,7 +55,7 @@ enuErrorPos_t save_user_data(uint8_t pos,enuPlayer_t player)
     {
         for(j=0;j<col;j++)
         {
-            if(pos == ((row*i)+j) )
+            if((pos-ASCII) == ((row*i)+j) )
             {
                 /*check if this position was used before */
                 if(user_input[i][j]=='X' || user_input[i][j]== 'O')

@@ -1,6 +1,6 @@
 #ifndef XO_H_INCLUDED
 #define XO_H_INCLUDED
-typedef char            uint8_t;
+typedef unsigned char            uint8_t;
 typedef int             int32_t;
 typedef unsigned int    uint32_t;
 typedef short int       uint16_t;
@@ -14,6 +14,8 @@ typedef short int       uint16_t;
 #define row 3
 #define col 3
 #define MAX_PLAY_NUM 8
+#define ASCII (48)
+
 /*- PRIMITIVE TYPES ----------------------------------------*/
 
 extern uint8_t user_input[row][col];
