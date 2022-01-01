@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1641072786 source:e:\sprints\sprints_assignments\sprints_assignments\searching_algorithm\search\main.c
+	<stdio.h>
+	<stdlib.h>
+	"DataTypes.h"
+
+1641043514 e:\sprints\sprints_assignments\sprints_assignments\searching_algorithm\search\datatypes.h
+
