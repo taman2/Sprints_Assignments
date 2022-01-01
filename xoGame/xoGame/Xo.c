@@ -55,7 +55,7 @@ enuErrorPos_t save_user_data(uint8_t pos,enuPlayer_t player)
     {
         for(j=0;j<col;j++)
         {
-            if((pos-ASCII) == ((row*i)+j) )
+            if((pos/*-ASCII*/) == ((row*i)+j) )
             {
                 /*check if this position was used before */
                 if(user_input[i][j]=='X' || user_input[i][j]== 'O')

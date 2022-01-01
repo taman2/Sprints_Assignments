@@ -5,7 +5,7 @@
 
 int main()
 {
-    uint8_t user_position=0;
+    uint32_t user_position=0;
     genu_GameState=PLAY;
     while(1)
     {
@@ -14,8 +14,11 @@ int main()
         {
             case player1:
                 board(player1);
-                scanf(" %c",&user_position);
-                if(user_position >=(0+ASCII) && user_position <= (8+ASCII))
+                scanf(" %d",&user_position);
+               // fflush();
+               // scanf(" %c",&user_position);
+
+                if(user_position >=(0U) && user_position <= (8U))
                 {
                     genu_ErrorPos=save_user_data(user_position,player1);
                     if(genu_ErrorPos == POS_VAL)
@@ -41,8 +44,11 @@ int main()
                 break;
             case player2:
                 board(player2);
-                scanf(" %c",&user_position);
-                if(user_position >=(0+ASCII) && user_position <= (8+ASCII))
+                scanf(" %d",&user_position);
+               // fflush();
+               // scanf(" %c",&user_position);
+
+                if(user_position >=(0U/*+ASCII*/) && user_position <= (8U/*ASCII*/))
                 {
                     genu_ErrorPos=save_user_data(user_position,player2);
                     if(genu_ErrorPos == POS_VAL)

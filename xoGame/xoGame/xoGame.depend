@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1640696548 source:e:\sprints\sprints_assignments\sprints_assignments\xogame\xogame\main.c
+1640783282 source:e:\sprints\sprints_assignments\sprints_assignments\xogame\xogame\main.c
 	<stdio.h>
 	<stdlib.h>
 	"XO.h"
@@ -7,6 +7,6 @@
 1640693158 e:\sprints\sprints_assignments\sprints_assignments\xogame\xogame\xo.h
 	<stdio.h>
 
-1640696488 source:e:\sprints\sprints_assignments\sprints_assignments\xogame\xogame\xo.c
+1640699953 source:e:\sprints\sprints_assignments\sprints_assignments\xogame\xogame\xo.c
 	"XO.h"
 

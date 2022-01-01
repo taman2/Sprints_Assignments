@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1641044008 source:e:\sprints\sprints_assignments\sprints_assignments\stack\stack\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Compiler.h"
+	"DataTypes.h"
+
+1641044431 source:e:\sprints\sprints_assignments\sprints_assignments\stack\stack\stack.c
+	"Stack.h"
+
+1641042732 e:\sprints\sprints_assignments\sprints_assignments\stack\stack\stack.h
+	"DataTypes.h"
+
+1641043514 e:\sprints\sprints_assignments\sprints_assignments\stack\stack\datatypes.h
+
+1641044132 source:e:\sprints\sprints_assignments\sprints_assignments\stack\stack\compiler.c
+	"Compiler.h"
+
+1641042732 e:\sprints\sprints_assignments\sprints_assignments\stack\stack\compiler.h
+	"Stack.h"
+
