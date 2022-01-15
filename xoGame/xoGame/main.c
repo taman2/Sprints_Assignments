@@ -15,9 +15,6 @@ int main()
             case player1:
                 board(player1);
                 scanf(" %d",&user_position);
-               // fflush();
-               // scanf(" %c",&user_position);
-
                 if(user_position >=(0U) && user_position <= (8U))
                 {
                     genu_ErrorPos=save_user_data(user_position,player1);
@@ -45,9 +42,6 @@ int main()
             case player2:
                 board(player2);
                 scanf(" %d",&user_position);
-               // fflush();
-               // scanf(" %c",&user_position);
-
                 if(user_position >=(0U/*+ASCII*/) && user_position <= (8U/*ASCII*/))
                 {
                     genu_ErrorPos=save_user_data(user_position,player2);
