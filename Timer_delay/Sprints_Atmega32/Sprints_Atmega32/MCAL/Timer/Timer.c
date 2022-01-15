@@ -74,14 +74,14 @@ genu_ERROR_t Timer_Init(str_TimerConfing_t *str_TimerConfing)
 genu_ERROR_t Timer0_delayMs(uinteg32_t u32_delay)
 {
 	if(u32_delay > 100000){return TIMER_ERROR_NOK;}
-	uinteg32_t u8_count=0;
+	uinteg32_t u32_count=0;
 	Timer_SetTimerCountReg(TIMER0,TIMER0_TCNT_INIT_VALUE);
-	while(u8_count <u32_delay)
+	while((u32_count) <u32_delay)
 	{
 		if((GET_BIT(TIFR,TOV0)==1))
 		{
 			SET_BIT(TIFR,TOV0);
-			u8_count++;
+			u32_count++;
 		}
 	}
 	return TIMER_ERROR_OK;
@@ -104,24 +104,6 @@ genu_ERROR_t Timer_SetTimerCountReg(enu_TimerId_t enu_TimerId,uinteg8_t u8_TCNT_
 	}
 	return TIMER_ERROR_OK;
 }
-void Timer_OVF_ISR(void)
-{
-	static count1=0;
-	static count2=0;
-	count1++;
-	count2++;
-	if(count1 > 300)
-	{
-		GPIO_Write(&PORTB,(PIN7|PIN6|PIN5|PIN4),RESET);
-		count1=0;
-	}
-	if(count2 >500)
-	{
-		GPIO_Write(&PORTB,(PIN7|PIN6|PIN5|PIN4),SET);
-		count2=0;
-	}
-}
-
 
 void __vector_11(void)
 {

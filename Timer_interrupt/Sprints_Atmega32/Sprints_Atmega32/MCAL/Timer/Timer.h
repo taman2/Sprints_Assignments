@@ -10,7 +10,7 @@
 #define TIMER_H_
 #include "AT32_Dio.h"
 
-#define TIMER0_TCNT_INIT_VALUE 131
+#define TIMER0_TCNT_INIT_VALUE  131
 
 typedef enum
 {
