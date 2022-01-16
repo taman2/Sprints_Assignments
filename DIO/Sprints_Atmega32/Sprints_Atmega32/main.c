@@ -22,6 +22,7 @@ int main(void)
     {
 		GPIO_Read (&PINB, PIN2 ,&Temp);
 		for(uinteg32_t i=0;i<230000;i++);/*40ms delay for denouncing */
+	    GPIO_Toggle(&PORTB,(PIN7|PIN6|PIN5|PIN4));
     }
 }
 
