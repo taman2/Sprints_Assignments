@@ -10,7 +10,7 @@ void (*_adc_handler)(uinteg8_t pin, uinteg16_t);
 volatile uinteg8_t _adc_pin_qty;
 void ADC_Init(void)
 {
-		DDRA=0x0;			/* Make ADC port as input */
+		CLR_BIT(DDRA,0);			/* Make ADC port as input */
 		ADCSRA = 0x87;			/* Enable ADC, fr/128  */
 		ADMUX = 0x40;			/* Vref: Avcc, ADC channel: 0 */
 }

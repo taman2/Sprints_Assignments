@@ -14,10 +14,7 @@
 #include "../HAL/LCD/LCD.h"
 #include "../HAL/KeyPad/KeyPad.h"
 
- ADC_ISR(void)
-{
-	
-}
+
 int main(void)
 {
 	GPIO_Value Temp=RESET;
@@ -27,13 +24,13 @@ int main(void)
 	GPIO_Init ( _PORTB,((PIN7|PIN6|PIN5|PIN4)),OutPut);
 	GPIO_Init ( _PORTB,(PIN2),InPut);
 	Timer_Init(&gstr_Timer0Confing);
-	//adc_start(ADC_VREF_AVCC, ADC_PRESCALER_16, ADC0, ADC_ISR);
+	ADC_Init();
 	X=(int)ADC_read(ADC_PRESCALER_128,ADC_VREF_AVCC,ADC0);
-    LCD_String("temperature");
+    LCD_String("Temperature:");
     LCD_Integ((int)X);
     while (1) 
     {
-	
+	  
 	  
 	}
 }

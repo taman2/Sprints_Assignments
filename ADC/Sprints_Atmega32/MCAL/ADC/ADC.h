@@ -35,6 +35,7 @@
 uinteg16_t ADC_read(uinteg8_t prescaler, uinteg8_t vref, uinteg8_t pin);
 void adc_start(uinteg8_t prescaler, uinteg8_t vref, uinteg8_t pin_qty, void (*handler)(uinteg8_t, uinteg16_t));
 void adc_stop();
+void ADC_Init(void);
 
 
 
