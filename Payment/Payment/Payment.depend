@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1643170844 source:e:\sprints\sprints_assignments\sprints_assignments\payment\payment\main.c
+	<stdio.h>
+	<stdlib.h>
+	"DataTypes.h"
+	"Payment.h"
+
+1643157021 e:\sprints\sprints_assignments\sprints_assignments\payment\payment\datatypes.h
+
+1643171733 source:e:\sprints\sprints_assignments\sprints_assignments\payment\payment\payment.c
+	"Payment.h"
+
+1643171733 e:\sprints\sprints_assignments\sprints_assignments\payment\payment\payment.h
+	"DataTypes.h"
+
+1643162780 source:e:\sprints\sprints_assignments\sprints_assignments\payment\payment\search.c
+	"DataTypes.h"
+
