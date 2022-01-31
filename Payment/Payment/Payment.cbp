@@ -31,6 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="DataTypes.h" />
+		<Unit filename="Payment.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Payment.h" />
+		<Unit filename="Search.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
