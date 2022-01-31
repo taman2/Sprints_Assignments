@@ -47,7 +47,9 @@ C_SRCS +=  \
 ../main.c \
 ../MCAL/adc_program.c \
 ../MCAL/DIO_program.c \
-../MCAL/Timers.c
+../MCAL/Timers.c \
+../MCAL/UART.c \
+../MCAL/UART_interface.c
 
 
 PREPROCESSING_SRCS += 
@@ -64,7 +66,9 @@ HAL/temp_sensor_lm35_program.o \
 main.o \
 MCAL/adc_program.o \
 MCAL/DIO_program.o \
-MCAL/Timers.o
+MCAL/Timers.o \
+MCAL/UART.o \
+MCAL/UART_interface.o
 
 OBJS_AS_ARGS +=  \
 HAL/keypad.o \
@@ -74,7 +78,9 @@ HAL/temp_sensor_lm35_program.o \
 main.o \
 MCAL/adc_program.o \
 MCAL/DIO_program.o \
-MCAL/Timers.o
+MCAL/Timers.o \
+MCAL/UART.o \
+MCAL/UART_interface.o
 
 C_DEPS +=  \
 HAL/keypad.d \
@@ -84,7 +90,9 @@ HAL/temp_sensor_lm35_program.d \
 main.d \
 MCAL/adc_program.d \
 MCAL/DIO_program.d \
-MCAL/Timers.d
+MCAL/Timers.d \
+MCAL/UART.d \
+MCAL/UART_interface.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/keypad.d \
@@ -94,7 +102,9 @@ HAL/temp_sensor_lm35_program.d \
 main.d \
 MCAL/adc_program.d \
 MCAL/DIO_program.d \
-MCAL/Timers.d
+MCAL/Timers.d \
+MCAL/UART.d \
+MCAL/UART_interface.d
 
 OUTPUT_FILE_PATH +=Thermostat\ Team\ Project.elf
 
@@ -160,6 +170,20 @@ MCAL/DIO_program.o: ../MCAL/DIO_program.c
 	
 
 MCAL/Timers.o: ../MCAL/Timers.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../MCAL" -I"../HAL" -I"../Libraries"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/UART.o: ../MCAL/UART.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../MCAL" -I"../HAL" -I"../Libraries"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/UART_interface.o: ../MCAL/UART_interface.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../MCAL" -I"../HAL" -I"../Libraries"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

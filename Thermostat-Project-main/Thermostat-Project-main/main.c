@@ -34,6 +34,8 @@ typedef enum
 	SET_MAX_TEMP
 }genu_ProgState_t;
 
+  extern struct gstr_USART_Config_t gstr_USART_Config;
+ USART_voidInit(&gstr_USART_Config);
 
 int main(void)
 {	

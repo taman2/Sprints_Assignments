@@ -75,6 +75,9 @@
 #define Ru8_UDR              *((volatile uint8_t*)0x2C)
 #define Ru8_UCSRA            *((volatile uint8_t*)0x2B)
 #define Ru8_UCSRB            *((volatile uint8_t*)0x2A)
+#define Ru8_UCSRC			 *((volatile uint8_t* )0X40) 
+
+#define Ru8_UBRRH            *((volatile uint8_t*)0X40)
 #define Ru8_UBRRL            *((volatile uint8_t*)0x29)
 #define Ru8_ACSR             *((volatile uint8_t*)0x28)
 #define Ru8_ADMUX            *((volatile uint8_t*)0x27)

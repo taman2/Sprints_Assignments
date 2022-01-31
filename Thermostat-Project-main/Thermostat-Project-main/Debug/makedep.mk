@@ -18,3 +18,7 @@ MCAL\DIO_program.c
 
 MCAL\Timers.c
 
+MCAL\UART.c
+
+MCAL\UART_interface.c
+
