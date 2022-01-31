@@ -16,13 +16,13 @@ void Timer_OVF_ISR(void)
 	static uinteg32_t count1=0;
 	static uinteg32_t count2=5;
 	count1++;
-	if(count1 > 30 && count2==5)
+	if(count1 > 300 && count2==5)
 	{
 		GPIO_Toggle(&PORTB,(PIN7|PIN6|PIN5|PIN4));
 		count1=0;
 		count2=3;
 	}
-	if(count1 >50 && count2==3)
+	if(count1 >500 && count2==3)
 	{
 		GPIO_Toggle(&PORTB,(PIN7|PIN6|PIN5|PIN4));
 		count1=0;
