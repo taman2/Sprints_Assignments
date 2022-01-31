@@ -132,23 +132,3 @@ enu_TWI_STATE_t TWI_SlaveListen(void)
 		continue;													/* Else continue */
 	}		
 }
-// char I2C_Slave_Receive()
-// {
-// 	uinteg8_t status;											/* Declare variable */
-// 	TWCR=(1<<TWEN)|(1<<TWEA)|(1<<TWINT);						/* Enable TWI & generation of ack */
-// 	while(!(TWCR&(1<<TWINT)));									/* Wait until TWI finish its current job */
-// 	status=TWSR&0xF8;											/* Read TWI status register */
-// 	if(status==0x80||status==0x90)								/* Check for data received &ack returned */
-// 	return TWDR;												/* If yes then return received data */
-// 
-// 	/* Check for data received, nack returned & switched to not addressed slave mode */
-// 	if(status==0x88||status==0x98)
-// 	return TWDR;												/* If yes then return received data */
-// 	if(status==0xA0)											/* Check wether STOP/REPEATED START */
-// 	{	
-// 		TWCR|=(1<<TWINT);										/* Clear interrupt flag & return -1 */
-// 		return -1;
-// 	}
-// 	else
-// 	return -2;			/* Else return -2 */
-// }

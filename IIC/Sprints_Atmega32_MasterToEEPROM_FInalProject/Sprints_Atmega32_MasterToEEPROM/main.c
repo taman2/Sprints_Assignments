@@ -31,7 +31,7 @@ int main(void)
     {
 
 	 
-		enu_TWI_STATE=TWI_msterSendSLV_RW(SLAVE_ADDRESS_WRITE);
+		enu_TWI_STATE=EEWriteByte(SLAVE_ADDRESS_WRITE,);
 		if(enu_TWI_STATE == TWI_OK)
 		{
 			TWI_Write(0x0f);
