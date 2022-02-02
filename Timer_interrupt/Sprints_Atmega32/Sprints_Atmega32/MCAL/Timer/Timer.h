@@ -65,7 +65,7 @@ extern str_TimerConfing_t gstr_Timer2Confing;
 
 
 /****************************function prototypes*******************************************/
-
+/* EX:   Timer_Init(&gstr_Timer0Confing);      */
 genu_ERROR_t Timer_Init(str_TimerConfing_t *str_TimerConfing);
 genu_ERROR_t Timer0_delayMs(uinteg32_t u32_delay);
 genu_ERROR_t Timer_SetTimerCountReg(enu_TimerId_t enu_TimerId,uinteg8_t u8_TCNT_Value);
