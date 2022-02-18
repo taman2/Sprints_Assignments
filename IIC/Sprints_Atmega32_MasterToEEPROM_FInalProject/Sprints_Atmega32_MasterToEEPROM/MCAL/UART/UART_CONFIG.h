@@ -74,7 +74,13 @@ enum USART_RX_INTERRUPT{
 enum USART_UDR_INTERRUPT{
 	USART_UDR_INTERRUPT_DISABLE= (0<<5),
 	USART_UDR_INTERRUPT_ENABLE= (1<<5)
-	};
+};
+typedef enum
+{
+	UART_OK,
+	UART_NOK
+		
+}UART_ERROR_t;
 
 struct gstr_USART_Config_t{
 	enum USART_SYNCH_MODE_           SYNCH_MODE;
@@ -105,7 +111,7 @@ uinteg8_t USART_ReceiveChar(void);
 void USART_Send_String (uinteg8_t *Packet_Send_Buffer );
 void USART_Recieve_String (uinteg8_t *Packet_Receive_Buffer );
 void UART_ReceiveBuffer(uinteg8_t *str,uinteg32_t u32_size);
-void USART_Recieve_Packet (uinteg8_t *Packet_Receive_Buffer ,uinteg8_t Header_Byte ,uinteg8_t Tail_Byte);
+UART_ERROR_t USART_Recieve_Packet (uinteg8_t *Packet_Receive_Buffer ,uinteg8_t Tail_Byte);
 void USART_Send_Packet(volatile uinteg8_t *str,uinteg8_t Stop_Byte);
 void USART_Receive_Byte_Iterrupt(volatile uinteg8_t *Byte_Address);
 void USART_RX_Int_CallBack_fun(void (*ptr_To_Fun)(void));

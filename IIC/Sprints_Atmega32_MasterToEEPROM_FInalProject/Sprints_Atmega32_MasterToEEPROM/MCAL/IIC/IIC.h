@@ -57,7 +57,7 @@ typedef enum
 	TWI_SLAVE_DATA_TX_LAST_BYTE_ACK=0XC8
 	
 }enu_TWI_STATE_t;
-void TWI_Init(void);
+enu_TWI_STATE_t TWI_Init(void);
 void TWI_Start(void);
 void TWI_Stop(void);
 void TWI_Write(uinteg8_t u8_data);

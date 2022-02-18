@@ -44,9 +44,11 @@ C_SRCS +=  \
 ../HAL/LCD.c \
 ../HAL/Motorc.c \
 ../HAL/temp_sensor_lm35_program.c \
-../main.c \
 ../MCAL/adc_program.c \
 ../MCAL/DIO_program.c \
+../MCAL/External_Interrupts.c \
+../MCAL/ICU.c \
+../MCAL/main.c \
 ../MCAL/Timers.c \
 ../MCAL/UART.c \
 ../MCAL/UART_interface.c
@@ -63,9 +65,11 @@ HAL/keypad.o \
 HAL/LCD.o \
 HAL/Motorc.o \
 HAL/temp_sensor_lm35_program.o \
-main.o \
 MCAL/adc_program.o \
 MCAL/DIO_program.o \
+MCAL/External_Interrupts.o \
+MCAL/ICU.o \
+MCAL/main.o \
 MCAL/Timers.o \
 MCAL/UART.o \
 MCAL/UART_interface.o
@@ -75,9 +79,11 @@ HAL/keypad.o \
 HAL/LCD.o \
 HAL/Motorc.o \
 HAL/temp_sensor_lm35_program.o \
-main.o \
 MCAL/adc_program.o \
 MCAL/DIO_program.o \
+MCAL/External_Interrupts.o \
+MCAL/ICU.o \
+MCAL/main.o \
 MCAL/Timers.o \
 MCAL/UART.o \
 MCAL/UART_interface.o
@@ -87,9 +93,11 @@ HAL/keypad.d \
 HAL/LCD.d \
 HAL/Motorc.d \
 HAL/temp_sensor_lm35_program.d \
-main.d \
 MCAL/adc_program.d \
 MCAL/DIO_program.d \
+MCAL/External_Interrupts.d \
+MCAL/ICU.d \
+MCAL/main.d \
 MCAL/Timers.d \
 MCAL/UART.d \
 MCAL/UART_interface.d
@@ -99,9 +107,11 @@ HAL/keypad.d \
 HAL/LCD.d \
 HAL/Motorc.d \
 HAL/temp_sensor_lm35_program.d \
-main.d \
 MCAL/adc_program.d \
 MCAL/DIO_program.d \
+MCAL/External_Interrupts.d \
+MCAL/ICU.d \
+MCAL/main.d \
 MCAL/Timers.d \
 MCAL/UART.d \
 MCAL/UART_interface.d
@@ -148,13 +158,6 @@ HAL/temp_sensor_lm35_program.o: ../HAL/temp_sensor_lm35_program.c
 	@echo Finished building: $<
 	
 
-./main.o: .././main.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../MCAL" -I"../HAL" -I"../Libraries"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
 MCAL/adc_program.o: ../MCAL/adc_program.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -163,6 +166,27 @@ MCAL/adc_program.o: ../MCAL/adc_program.c
 	
 
 MCAL/DIO_program.o: ../MCAL/DIO_program.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../MCAL" -I"../HAL" -I"../Libraries"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/External_Interrupts.o: ../MCAL/External_Interrupts.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../MCAL" -I"../HAL" -I"../Libraries"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/ICU.o: ../MCAL/ICU.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../MCAL" -I"../HAL" -I"../Libraries"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/main.o: ../MCAL/main.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include" -I"../MCAL" -I"../HAL" -I"../Libraries"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

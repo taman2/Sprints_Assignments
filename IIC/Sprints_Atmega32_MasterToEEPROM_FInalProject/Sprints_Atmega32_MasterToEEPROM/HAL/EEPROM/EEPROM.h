@@ -16,8 +16,8 @@ typedef enum
 	EE_NOK
 	
 }enu_EE_Error_t;
-
-
+/*To use this functions and work well Kindly set SCL_CLK and F_CPU at [IIC_Interface.h] file " */
+enu_EE_Error_t EEInit(void);
 enu_EE_Error_t EEReadByte(uinteg16_t u16_addr, uinteg8_t *u8_data);
 enu_EE_Error_t EEWriteByte(uinteg16_t u16_addr, uinteg8_t u8_data);
 

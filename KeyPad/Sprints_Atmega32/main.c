@@ -12,12 +12,13 @@
 #include "delay.h"
 #include "../HAL/KeyPad/KeyPad.h"
 #include "../HAL/LCD/LCD.h"
+
 GPIO_Value Temp=RESET;
 
 
 int main(void)
 {
-	uinteg16_t X=0;
+	uinteg16_t u16_KeyPressed=0;
 	LCD_Init();
 	KeyPad_Init();
 	GPIO_Init ( _PORTB,((PIN7|PIN6|PIN5|PIN4)),OutPut);
@@ -27,12 +28,12 @@ int main(void)
 
     while (1) 
     {
-	   X=Key_KeyPressed();
-	   if(X<20)
+	   Key_KeyPressed(&u16_KeyPressed);
+	   if(u16_KeyPressed<KPAD_NON_KEY_PRESSED)
 	   {
 		  LCD_Clear();
 	  	  LCD_Int((int)X);
-		   X=20;
+		  X=20;
 	   }
 	  
 	}

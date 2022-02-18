@@ -7,48 +7,42 @@
 
 #include "IIC_Interface.h"
 	
-void TWI_Init(void)
+enu_TWI_STATE_t TWI_Init(void)
 {
 #if TWI_MODE == TWI_MASTER_MODE
-	TWBR = BITRATE(TWI_PRESCALERBITS);
+	MASK_BITS(TWCR,TWEN);
 #else
 	/* Assign Address in TWI address register */
     TWAR=SLAVE_ADD;		
 	/* Enable TWI, Enable ack generation */
-	SET_BIT(TWCR,TWINT);
-	SET_BIT(TWCR,TWEA);						
+	MASK_BITS(TWCR,((1<<TWINT) |(1<<TWEA)))					
 	//enable TWI
-	SET_BIT(TWCR,TWEN);
 #endif
+	TWBR = BITRATE(TWI_PRESCALERBITS);
+	return TWI_OK;
 }
 void TWI_Start(void)
 {
-	SET_BIT(TWCR,TWINT);
-	SET_BIT(TWCR,TWSTA);
-	SET_BIT(TWCR,TWEN);	
+	MASK_BITS(TWCR,((1<<TWINT )| (1<<TWSTA) |(1<<TWEN)));
 	/*wait until operation complete*/
 	while (GET_BIT(TWCR,TWINT) == 0);
 }
 //send stop signal
 void TWI_Stop(void)
 {
-	SET_BIT(TWCR,TWINT);
-	SET_BIT(TWCR,TWSTO);
-	SET_BIT(TWCR,TWEN);
+	MASK_BITS(TWCR,((1<<TWINT) | (1<<TWSTO) |(1<<TWEN)));
+
 }
 void TWI_Write(uinteg8_t u8_data)
 {
 	TWDR = u8_data;
-	SET_BIT(TWCR,TWINT);
-	SET_BIT(TWCR,TWEN);
+	MASK_BITS(TWCR,((1<<TWINT) |(1<<TWEN)));
 	/*wait until operation complete*/
 	while (GET_BIT(TWCR,TWINT) == 0);
 }
 uinteg8_t TWI_ReadACK(void)
 {
-	SET_BIT(TWCR,TWINT);
-	SET_BIT(TWCR,TWEN);
-	SET_BIT(TWCR,TWEA);
+	MASK_BITS(TWCR,((1<<TWINT) | (1<<TWEA) |(1<<TWEN)));
 	/*wait until operation complete*/
 	while (GET_BIT(TWCR,TWINT) == 0);
 	return TWDR;
@@ -56,8 +50,7 @@ uinteg8_t TWI_ReadACK(void)
 //read byte with NACK
 uinteg8_t TWI_ReadNACK(void)
 {
-	SET_BIT(TWCR,TWINT);
-	SET_BIT(TWCR,TWEN);
+	MASK_BITS(TWCR,((1<<TWINT) |(1<<TWEN)));	
 	/*wait until operation complete*/
 	while (GET_BIT(TWCR,TWINT) == 0);
 
@@ -73,9 +66,7 @@ uinteg8_t TWI_GetStatus(void)
 enu_TWI_STATE_t TWI_ReadACK_returnState(uinteg8_t *u8ptr_dataTemp)
 {
 	enu_TWI_STATE_t u8_state;
-	SET_BIT(TWCR,TWINT);
-	SET_BIT(TWCR,TWEN);
-	SET_BIT(TWCR,TWEA);
+	MASK_BITS(TWCR,((1<<TWINT) | (1<<TWEA) |(1<<TWEN)));	
 	/*wait until operation complete*/
 	while (GET_BIT(TWCR,TWINT) == 0);
 	u8_state=TWI_GetStatus();
@@ -88,8 +79,7 @@ enu_TWI_STATE_t TWI_ReadACK_returnState(uinteg8_t *u8ptr_dataTemp)
 enu_TWI_STATE_t TWI_ReadNACK_returnState(uinteg8_t *u8ptr_dataTemp)
 {
 	uinteg8_t u8_state;
-	SET_BIT(TWCR,TWINT);
-	SET_BIT(TWCR,TWEN);
+	MASK_BITS(TWCR,((1<<TWINT) |(1<<TWEN)));	
 	/*wait until operation complete*/
 	while (GET_BIT(TWCR,TWINT) == 0);
 	u8_state=TWI_GetStatus();

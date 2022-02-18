@@ -29,6 +29,7 @@
 
 #define  EnableGeneralInterrupt()       SET_BIT(SREG,I)
 #define  DisableGeneralInterrupt()      CLR_BIT(SREG,I)
+#define NULL_POINTER ((void *)0)
 
 //TWI Registers
 #define TWBR    ( *((volatile uinteg8_t* )(0X20)) )

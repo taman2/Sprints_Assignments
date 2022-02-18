@@ -156,9 +156,6 @@
     <Compile Include="Libraries\STD_TYPES.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="main.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="MCAL\adc_interface.h">
       <SubType>compile</SubType>
     </Compile>
@@ -178,6 +175,24 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\DIO_program.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\External_Interrupts.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\External_Interrupts.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\External_interrupts_Private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ICU.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ICU_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\main.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\Timers.c">

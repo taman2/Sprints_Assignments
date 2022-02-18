@@ -4,43 +4,32 @@
  * Created: 1/9/2022 12:28:39 AM
  * Author : Mohamed Salah Taman
  */ 
-#define F_CPU 8000000UL
-
-#include "BitManipulation.h"
-#include "AT32_Dio.h"
-#include "Timer.h"
-#include "delay.h"
-#include "../MCAL/ADC/ADC.h"
-#include "../HAL/LCD/LCD.h"
-#include "../HAL/KeyPad/KeyPad.h"
-#include "../MCAL/UART/UART_CONFIG.h"
-#include "IIC_Interface.h"
-
-#define SLAVE_ADDRESS_WRITE 0x0A
-#define SLAVE_ADDRESS_READe 0x0B
-
-
+#include "../App/EE_APP/EE_APP.h"
 int main(void)
 {
-	 enu_TWI_STATE_t enu_TWI_STATE;
-	TWI_Init();
-	GPIO_Init ( _PORTB,((PIN7|PIN6|PIN5|PIN4)),OutPut);
-	//USART_Init(&gstr_USART_Config);
-	
+	EE_APP_Init();
     while (1) 
     {
 
-	 
-		enu_TWI_STATE=EEWriteByte(SLAVE_ADDRESS_WRITE,);
-		if(enu_TWI_STATE == TWI_OK)
-		{
-			TWI_Write(0x0f);
-			TWI_Stop();
-			GPIO_Write( &PORTB,((PIN7|PIN6|PIN5|PIN4)),SET);
-		}
-		else
-		GPIO_Write( &PORTB,((PIN7|PIN6|PIN5|PIN4)),RESET);
-	  
+	  EE_APPControl();
 	}
 }
 
+		/*
+		
+#define SLAVE_ADDRESS_WRITE 0x0A
+#define SLAVE_ADDRESS_READ 0x0B
+#define  EEPROM_BYTE_ADD 0x0000
+
+			uinteg8_t u8_SentByte=0x0A;
+			uinteg8_t u8_RecivedByte=0x07;
+
+		enu_TWI_STATE=EEWriteByte(EEPROM_BYTE_ADD,u8_SentByte);
+		if(enu_TWI_STATE == EE_OK)
+		{
+			enu_TWI_STATE=EEReadByte(EEPROM_BYTE_ADD,&u8_RecivedByte);
+			if(enu_TWI_STATE == EE_OK)
+			GPIO_Write( &PORTB,u8_RecivedByte,SET);
+		}
+		else
+		GPIO_Write( &PORTB,((PIN7|PIN6|PIN5|PIN4)),RESET);*/

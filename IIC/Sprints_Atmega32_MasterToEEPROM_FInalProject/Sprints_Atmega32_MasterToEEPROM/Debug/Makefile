@@ -33,6 +33,7 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
+../App/EE_APP \
 ../HAL \
 ../HAL/LCD \
 ../HAL/KeyPad \
@@ -50,6 +51,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../App/EE_APP/EE_APP.c \
 ../HAL/EEPROM/EEPROM.c \
 ../HAL/KeyPad/KeyPad.c \
 ../HAL/LCD/LCD.c \
@@ -70,6 +72,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+App/EE_APP/EE_APP.o \
 HAL/EEPROM/EEPROM.o \
 HAL/KeyPad/KeyPad.o \
 HAL/LCD/LCD.o \
@@ -83,6 +86,7 @@ MCAL/UART/UART.o \
 MCAL/UART/UART_USER.o
 
 OBJS_AS_ARGS +=  \
+App/EE_APP/EE_APP.o \
 HAL/EEPROM/EEPROM.o \
 HAL/KeyPad/KeyPad.o \
 HAL/LCD/LCD.o \
@@ -96,6 +100,7 @@ MCAL/UART/UART.o \
 MCAL/UART/UART_USER.o
 
 C_DEPS +=  \
+App/EE_APP/EE_APP.d \
 HAL/EEPROM/EEPROM.d \
 HAL/KeyPad/KeyPad.d \
 HAL/LCD/LCD.d \
@@ -109,6 +114,7 @@ MCAL/UART/UART.d \
 MCAL/UART/UART_USER.d
 
 C_DEPS_AS_ARGS +=  \
+App/EE_APP/EE_APP.d \
 HAL/EEPROM/EEPROM.d \
 HAL/KeyPad/KeyPad.d \
 HAL/LCD/LCD.d \
@@ -121,9 +127,9 @@ MCAL/Timer/Timer_User.d \
 MCAL/UART/UART.d \
 MCAL/UART/UART_USER.d
 
-OUTPUT_FILE_PATH +=Sprints_Atmega32.elf
+OUTPUT_FILE_PATH +=Atmega32_masterToEEPROM.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=Sprints_Atmega32.elf
+OUTPUT_FILE_PATH_AS_ARGS +=Atmega32_masterToEEPROM.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -135,6 +141,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+App/EE_APP/EE_APP.o: ../App/EE_APP/EE_APP.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.6.364\include" -I"../Services" -I"../MCAL" -I"../ML" -I"../HAL" -I"../MCAL/DIO" -I"../MCAL/Timer" -I"../MCAL/IIC" -I"../HAL/EEPROM"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 HAL/EEPROM/EEPROM.o: ../HAL/EEPROM/EEPROM.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -238,13 +251,13 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Sprints_Atmega32.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32"  
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Atmega32_masterToEEPROM.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32"  
 	@echo Finished building target: $@
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Sprints_Atmega32.elf" "Sprints_Atmega32.hex"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "Sprints_Atmega32.elf" "Sprints_Atmega32.eep" || exit 0
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "Sprints_Atmega32.elf" > "Sprints_Atmega32.lss"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "Sprints_Atmega32.elf" "Sprints_Atmega32.srec"
-	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "Sprints_Atmega32.elf"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Atmega32_masterToEEPROM.elf" "Atmega32_masterToEEPROM.hex"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "Atmega32_masterToEEPROM.elf" "Atmega32_masterToEEPROM.eep" || exit 0
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "Atmega32_masterToEEPROM.elf" > "Atmega32_masterToEEPROM.lss"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "Atmega32_masterToEEPROM.elf" "Atmega32_masterToEEPROM.srec"
+	"C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "Atmega32_masterToEEPROM.elf"
 	
 	
 
@@ -256,5 +269,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "Sprints_Atmega32.elf" "Sprints_Atmega32.a" "Sprints_Atmega32.hex" "Sprints_Atmega32.lss" "Sprints_Atmega32.eep" "Sprints_Atmega32.map" "Sprints_Atmega32.srec" "Sprints_Atmega32.usersignatures"
+	rm -rf "Atmega32_masterToEEPROM.elf" "Atmega32_masterToEEPROM.a" "Atmega32_masterToEEPROM.hex" "Atmega32_masterToEEPROM.lss" "Atmega32_masterToEEPROM.eep" "Atmega32_masterToEEPROM.map" "Atmega32_masterToEEPROM.srec" "Atmega32_masterToEEPROM.usersignatures"
 	

@@ -107,31 +107,33 @@ uinteg8_t USART_Receive( void )
 }
 void USART_Send_Packet(volatile uinteg8_t *str,uinteg8_t Stop_Byte)
 {
-	 uinteg8_t j=0;
+	uinteg8_t j=0;
 	
 	while (str[j]!=Stop_Byte)		/* Send string till stop byte*/
 	{
 		USART_Transmit(str[j]);
 		j++;
 	}
-  USART_Transmit(str[j]);
+	USART_Transmit(Stop_Byte);
 
 }
-void USART_Recieve_Packet (uinteg8_t *Packet_Receive_Buffer ,uinteg8_t Header_Byte ,uinteg8_t Tail_Byte){
-	  uinteg8_t i=0;
-	  
-Packet_Receive_Buffer[i]= USART_Receive();
-
+UART_ERROR_t USART_Recieve_Packet (uinteg8_t *Packet_Receive_Buffer ,uinteg8_t Tail_Byte){
+	if(Packet_Receive_Buffer == NULL_POINTER)
+	{
+		return UART_NOK;
+	}
+	uinteg8_t i=0;
+	Packet_Receive_Buffer[i]= USART_Receive();
 	while( Packet_Receive_Buffer[i]!= Tail_Byte  ){
-		if(Packet_Receive_Buffer[0]!=Header_Byte){
-			break;
-		}
 		i++;
 		Packet_Receive_Buffer[i]=USART_Receive();
 	}
+	
+	Packet_Receive_Buffer[i]=0;
+	return UART_OK;
+	
 
 }
-
 void USART_Recieve_String (uinteg8_t *Packet_Receive_Buffer ){
 	uinteg32_t i=0;
 	

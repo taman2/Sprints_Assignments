@@ -3,11 +3,11 @@
 /*             Developed By: Abdullah Mohamed              */
 /***********************************************************/
 
-#include "./HAL/LCD.h"
-#include "./HAL/temp_sensor_lm35_interface.h"
-#include "./HAL/Motor.h"
-#include "./MCAL/adc_interface.h"
-#include "./HAL/keypad.h"
+#include "../HAL/LCD.h"
+#include "../HAL/temp_sensor_lm35_interface.h"
+#include "../HAL/Motor.h"
+#include "../MCAL/adc_interface.h"
+#include "../HAL/keypad.h"
 
 #define  SWITCH_BUTTON_PORT     (PORTB)
 #define  SWITCH_BUTTON_PIN	    (PIN2 )
@@ -35,7 +35,6 @@ typedef enum
 }genu_ProgState_t;
 
   extern struct gstr_USART_Config_t gstr_USART_Config;
- USART_voidInit(&gstr_USART_Config);
 
 int main(void)
 {	
@@ -58,7 +57,8 @@ int main(void)
 	Motor_Init (MOTOR_ID_01);                                          /* 4 - Initialize The Fan Motor                    */
 	DIO_SetPinDirection(SWITCH_BUTTON_PORT,SWITCH_BUTTON_PIN,INPUT);   /* 5 - Enable PB1 to be used in case switching     */
 	LM35_u8GetTempInC(&u8_SensTemperature);                            /* 6 - Get Current Temperature                     */
-	                                                                   /***************************************************/
+	 USART_voidInit(&gstr_USART_Config);
+                                                                   /***************************************************/
 /**********************************************************************/
 /*                     End of Initializations                         */
 /**********************************************************************/

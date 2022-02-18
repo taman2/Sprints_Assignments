@@ -19,9 +19,9 @@ TWDR =	BITRATE(TWSR)	*/
 #define SCL_CLK 100000L
 #define  F_CPU 8000000UL
 
-#define  TWI_PRESCALERBITS	 TWI_PRESCALER_1
+#define  TWI_PRESCALERBITS			 TWI_PRESCALER_1
 #define  TWI_MODE				     TWI_MASTER_MODE
-#define	 SLAVE_ADD				   0xaa
+#define	 SLAVE_ADD					 0xaa
 
 
 

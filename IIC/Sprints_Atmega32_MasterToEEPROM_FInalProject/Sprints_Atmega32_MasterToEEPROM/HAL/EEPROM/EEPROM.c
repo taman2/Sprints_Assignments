@@ -5,6 +5,11 @@
  *  Author: Mohamed salah
  */ 
 #include "EEPROM.h"
+#include "Delay.h"
+enu_EE_Error_t EEInit(void)
+{
+	return (TWI_Init());
+}
 
 enu_EE_Error_t EEWriteByte(uinteg16_t u16_addr, uinteg8_t u8_data)
 {
@@ -30,7 +35,7 @@ enu_EE_Error_t EEReadByte(uinteg16_t u16_addr, uinteg8_t *u8_data)
 {
 	TWI_Start();
 	if (TWI_GetStatus() != TWI_ST_OK)
-	return EE_NOK;
+	return EE_OK;
 	//select devise and send A2 A1 A0 address bits
 	TWI_Write((EEDEVADR)|((uinteg8_t)((u16_addr & 0x0700)>>7)));
 	if (TWI_GetStatus() != TWI_SLA_W_ACK)

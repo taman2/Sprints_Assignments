@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+App\EE_APP\EE_APP.c
+
 HAL\EEPROM\EEPROM.c
 
 HAL\KeyPad\KeyPad.c

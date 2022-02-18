@@ -60,7 +60,7 @@
 #define SET_BITS(REG,BM)       (REG |=(BM))  /*set mask? change some bits in register without affecting other bits */
 #define CLR_BITS(REG,BM)       (REG &=~(BM)) /*mask clear */
 #define TOGGLE_BITS(REG,BM)	   (REG ^=(BM))
-#define MaskBits(REG,BM)		(REG = (BM))
+#define MASK_BITS(REG,BM)		(REG = (BM))
 
 
 

@@ -17,7 +17,7 @@ void KeyPad_Init(void)
 	
 }
 
-uinteg16_t Key_KeyPressed(void)
+uinteg16_t Key_KeyPressed(uinteg16_t *ptr)
 {
 	uinteg8_t i=0;
 	uinteg8_t j=0;
@@ -26,18 +26,19 @@ uinteg16_t Key_KeyPressed(void)
 	{
 		KEYPAD_PORT=0xFF;
 		CLR_BIT(KEYPAD_PORT,(i+ROW1_PIN_ID));
-		_delay_ms(1);
+		_delay_us(999);
 		for(j=0;j<COL_NUM;j++)
 		{
 			if(GET_BIT(KEYPAD_PIN,(j+COL1_PIN_ID))==RESET)
 			{
+				/*if u32_keypad_debouncingCount >= 20*/
 				_delay_ms(20);
 				sw =(i*ROW_NUM)+j+1;	
 				return sw;
 			}
 		}
 	}
-	return 20;
+	return KPAD_NON_KEY_PRESSED;
 }
 
    
