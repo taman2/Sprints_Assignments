@@ -107,7 +107,7 @@ uinteg8_t USART_Receive( void )
 	/* Get and return received data from buffer */
 	return UDR;
 }
-void USART_Send_Packet(volatile uinteg8_t *str,uinteg8_t Stop_Byte)
+void USART_Send_Packet( uinteg8_t *str,uinteg8_t Stop_Byte)
 {
 	 uinteg8_t j=0;
 	

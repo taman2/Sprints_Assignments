@@ -113,7 +113,7 @@ void USART_Recieve_String (uinteg8_t *Packet_Receive_Buffer );
 void UART_SendBuffer(uinteg8_t *str,uinteg32_t u32_size);
 void UART_ReceiveBuffer(uinteg8_t *str,uinteg32_t u32_size);
 UART_ERROR_t USART_Recieve_Packet (uinteg8_t *Packet_Receive_Buffer ,uinteg8_t Tail_Byte);
-void USART_Send_Packet(volatile uinteg8_t *str,uinteg8_t Stop_Byte);
+void USART_Send_Packet( uinteg8_t *str,uinteg8_t Stop_Byte);
 void USART_Receive_Byte_Iterrupt(volatile uinteg8_t *Byte_Address);
 void USART_RX_Int_CallBack_fun(void (*ptr_To_Fun)(void));
 void USART_TX_Int_CallBack_fun(void (*ptr_To_Fun)(void));

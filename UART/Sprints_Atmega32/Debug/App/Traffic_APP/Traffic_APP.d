@@ -15,7 +15,8 @@ App/Traffic_APP/Traffic_APP.d App/Traffic_APP/Traffic_APP.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  ../Services/../MCAL/UART/UART_USER.h \
  ../Services/../MCAL/UART/UART_CONFIG.h ../MCAL/IIC/IIC_Interface.h \
- ../MCAL/IIC/IIC.h
+ ../MCAL/IIC/IIC.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h
 
 ../App/Traffic_APP/Trafic_APP.h:
 
@@ -62,3 +63,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 ../MCAL/IIC/IIC_Interface.h:
 
 ../MCAL/IIC/IIC.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:

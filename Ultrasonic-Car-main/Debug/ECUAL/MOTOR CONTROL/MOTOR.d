@@ -1,0 +1,31 @@
+ECUAL/MOTOR CONTROL/MOTOR.d ECUAL/MOTOR CONTROL/MOTOR.o: \
+ ../ECUAL/MOTOR\ CONTROL/MOTOR.c ../ECUAL/MOTOR\ CONTROL/MOTOR.h \
+ ../ECUAL/MOTOR\ CONTROL/../../LIB/STD_TYPES.h \
+ ../ECUAL/MOTOR\ CONTROL/../../LIB/BIT_MATH.h \
+ ../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/DIO_interface.h \
+ ../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/../../LIB/STD_TYPES.h \
+ ../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/../../LIB/atmega32_registers.h \
+ ../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/../../LIB/STD_TYPES.h \
+ ../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/DIO_private.h \
+ ../ECUAL/MOTOR\ CONTROL/../softwarePWM/softwarePWM_interface.h \
+ ../ECUAL/MOTOR\ CONTROL/../softwarePWM/../../LIB/STD_TYPES.h
+
+../ECUAL/MOTOR\ CONTROL/MOTOR.h:
+
+../ECUAL/MOTOR\ CONTROL/../../LIB/STD_TYPES.h:
+
+../ECUAL/MOTOR\ CONTROL/../../LIB/BIT_MATH.h:
+
+../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/DIO_interface.h:
+
+../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/../../LIB/STD_TYPES.h:
+
+../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/../../LIB/atmega32_registers.h:
+
+../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/../../LIB/STD_TYPES.h:
+
+../ECUAL/MOTOR\ CONTROL/../../MCAL/DIO/DIO_private.h:
+
+../ECUAL/MOTOR\ CONTROL/../softwarePWM/softwarePWM_interface.h:
+
+../ECUAL/MOTOR\ CONTROL/../softwarePWM/../../LIB/STD_TYPES.h:

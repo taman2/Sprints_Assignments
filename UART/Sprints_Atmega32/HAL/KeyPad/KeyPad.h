@@ -9,7 +9,6 @@
 #ifndef KEYPAD_H_
 #define KEYPAD_H_
 
-#define  F_CPU 8000000UL
 #include "AT32_Dio.h"
 #include "delay.h"
 
